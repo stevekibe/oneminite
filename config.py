@@ -3,7 +3,7 @@ import os
 class config:
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://steve:poa@localhost/oneminite'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://steve:stevek@localhost/oneminite'
     
     SECRET_KEY = "steve"
     MAIL_SERVER = 'smtp.gmail.com'
