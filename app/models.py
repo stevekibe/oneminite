@@ -49,8 +49,6 @@ class PitchCategory(db.Model):
     id = db.Column(db.Integer, primary_key= True)
     name = db.Column(db.String(255))
     description = db.Column(db.String(255))
-
-    
     def save_category(self):
         '''
         saving the pitches
@@ -68,14 +66,14 @@ class Pitch(db.Model):
     '''
     class pitch
     '''
-    __tablename__ = 'pitche'
+    __tablename__ = 'pitches'
 
     id = db.Column(db.Integer,primary_key = True)
     content = db.Column(db.String)
     category_id = db.Column(db.Integer, db.ForeignKey("categories.id"))
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
-    comment = db.relationship("Comments", backref="pitche", lazy= "dynamic")
-    vote = db.relationship("Votes", backref="pitche", lazy= "dynamic")
+    comment = db.relationship("Comments", backref="pitches", lazy= "dynamic")
+    vote = db.relationship("Votes", backref="pitches", lazy= "dynamic")
 
 
     def save_pitch(self):

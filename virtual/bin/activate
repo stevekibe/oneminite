@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/steve/Documents/Python/one-minite/virtual"
+VIRTUAL_ENV="/home/steve/Documents/Python/One-minite/virtual"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

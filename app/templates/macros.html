@@ -29,4 +29,6 @@
         <hr>
         <p style="color:azure">{{comment.opinion}}</p>
         <p style="text-align:right; color:beige; font-size:10px;">{{comment.time_posted.strftime('%Y/%m/%d || %r')}}</p>
-    </div>    
+    </div> 
+    {% endfor %}
+{% endmacro %}   
