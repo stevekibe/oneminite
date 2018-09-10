@@ -7,16 +7,11 @@ from sqlalchemy.sql import func
 
 @login_manager.user_loader
 def load_user(user_id):
-
-
     return User.query.get(int(user_id))
 
-
 class User (UserMixin, db.Model):
-    #the user table
     __tablename__ = 'users'
 
-    #create the columns
     id = db.Column(db.Integer,primary_key = True)
     username = db.Column(db.String(255))
     email = db.Column(db.String(255),unique = True, index=True)
@@ -28,7 +23,7 @@ class User (UserMixin, db.Model):
     comment = db.relationship("Comments", backref="user", lazy= "dynamic")
     vote = db.relationship("Votes", backref="user", lazy= "dynamic")
 
-    #securing passwords
+    
     @property
     def password(self):
         raise AttributeError('You can not read the password Attribute')
@@ -73,15 +68,14 @@ class Pitch(db.Model):
     '''
     class pitch
     '''
-
-    __tablename__ = 'pitches'
+    __tablename__ = 'pitche'
 
     id = db.Column(db.Integer,primary_key = True)
     content = db.Column(db.String)
     category_id = db.Column(db.Integer, db.ForeignKey("categories.id"))
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
-    comment = db.relationship("Comments", backref="pitches", lazy= "dynamic")
-    vote = db.relationship("Votes", backref="pitches", lazy= "dynamic")
+    comment = db.relationship("Comments", backref="pitche", lazy= "dynamic")
+    vote = db.relationship("Votes", backref="pitche", lazy= "dynamic")
 
 
     def save_pitch(self):
@@ -106,7 +100,6 @@ class Comments(db.Model):
     '''
     class for comments
     '''
-    
     __tablename__= 'comments'
 
     id = db.Column(db.Integer, primary_key = True)
@@ -119,7 +112,6 @@ class Comments(db.Model):
         '''
         method for saving a comment
         '''
-
         db.session.add(self)
         db.session.commit()
 
@@ -134,7 +126,6 @@ class Votes(db.Model):
     '''
     class to model votes 
     '''
-
     __tablename__='votes'
 
     id = db.Column(db. Integer, primary_key=True)
