@@ -96,7 +96,7 @@ def post_comment(id):
         new_comment.save_comment()
         return redirect(url_for('.view_pitch', id=pitches.id))
 
-    return render_template('comment.html', comment_form=form, title=title)
+    return render_template('post-comment.html', comment_form=form, title=title)
 
 @main.route('/pitch/upvote/<int:id>')
 @login_required
