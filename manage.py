@@ -5,7 +5,7 @@ from app.models import User,Pitch,Comments,PitchCategory,Votes
 from flask_migrate import Migrate, MigrateCommand
 
 #app = create_app('development')
-app = create_app('production')
+app = create_app('Production')
 
 manager = Manager(app)
 manager.add_command('server', Server)
