@@ -113,7 +113,7 @@ def upvote(id):
     new_vote.save_vote()
     return redirect(url_for('.view_pitch', id=id))
 
-@main.route('/pitch/downvote/<int:id>', method=['GET','POST'])
+@main.route('/pitch/downvote/<int:id>')
 @login_required
 def downvote(id):
     '''
@@ -128,7 +128,7 @@ def downvote(id):
     new_vote.save_vote()
     return redirect(url_for('.view_pitch', id=id))
 
-@main.route('/pitch/downvote/<int:id>', method=['GET','POST'])
+@main.route('/pitch/downvote/<int:id>')
 def vote_count(id):
     '''
     method to count the votes
