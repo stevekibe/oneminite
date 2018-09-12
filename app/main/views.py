@@ -98,7 +98,7 @@ def post_comment(id):
 
     return render_template('post-comment.html', comment_form=form, title=title)
 
-@main.route('/pitch/upvote/<int:id>')
+@main.route('/pitch/upvote/<int:id>', methods=['GET','POST'])
 @login_required
 def upvote(id):
     '''
@@ -113,7 +113,7 @@ def upvote(id):
     new_vote.save_vote()
     return redirect(url_for('.view_pitch', id=id))
 
-@main.route('/pitch/downvote/<int:id>')
+@main.route('/pitch/downvote/<int:id>', method=['GET','POST'])
 @login_required
 def downvote(id):
     '''
@@ -128,7 +128,7 @@ def downvote(id):
     new_vote.save_vote()
     return redirect(url_for('.view_pitch', id=id))
 
-@main.route('/pitch/downvote/<int:id>')
+@main.route('/pitch/downvote/<int:id>', method=['GET','POST'])
 def vote_count(id):
     '''
     method to count the votes
