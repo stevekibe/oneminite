@@ -6,7 +6,7 @@
  <div class="container">
       <div class="col-md-12">
          <p class="text-left"><a class="btn btn-primary" href="{{url_for('.new_pitch',id=pitches.category_id)}}">Post Pitch</a></p>
-         <div class="well" style="background-color:lightblue">
+         <div class="well" style="background-color:blue">
            <h3>{{pitches.content}}</h3>
          </div>
  
@@ -22,8 +22,8 @@
            </table>
  
           {% if comment %}
-          {{ macro.displaySpecificPitch(comment)}}
-          <hr>
+            {{ macro.displaySpecificPitch(comment)}}
+          
           {%else%}
           <h3 class="text-center" style="color:orange;">No comments </h3>
           {% endif %}

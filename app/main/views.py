@@ -2,7 +2,6 @@ from flask import render_template, request, redirect, url_for, abort
 from . import main
 from .. import db
 from ..models import User,Pitch,Comments,PitchCategory,Votes
-
 from . forms import PitchForm, CommentForm, CategoryForm
 from flask_login import login_required,current_user
 
@@ -71,7 +70,8 @@ def view_pitch(id):
     '''
     print(id)
     pitches = Pitch.query.get(id)
-    if pitches is None:
+    
+    if pitches is None:                                                                                                                                                                                                                           
         abort(404)
     
     comment = Comments.get_comments(id)
@@ -95,7 +95,7 @@ def post_comment(id):
         new_comment = Comments(opinion=opinion, user_id=current_user.id, pitches_id=pitches.id)
         new_comment.save_comment()
         return redirect(url_for('.view_pitch', id=pitches.id))
-
+   
     return render_template('post-comment.html', comment_form=form, title=title)
 
 @main.route('/pitch/upvote/<int:id>', methods=['GET','POST'])
